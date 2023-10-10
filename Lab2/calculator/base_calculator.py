@@ -38,9 +38,9 @@ class BaseCalculator:
     def __user_input(self):
         self._first_number = self.__enter_number("Enter first number\n")
         self._second_number = self.__enter_number("Enter second number\n")
-        self._operator = input("Enter operator\n")
+        self.__enter_operator()
 
-    # Implemented method that validates and return user operator input
+    # Implemented method that validates and initialize user operator
     def __enter_operator(self):
         while True:
             operator = input("Enter operator:\n")
