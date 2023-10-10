@@ -7,22 +7,29 @@ class BaseCalculator:
         self.__valid_operators = valid_operators
 
     def do_operation(self):
-        if self.__operator == '+':
-            return self.__first_number + self.__second_number
-        elif self.__operator == '-':
-            return self.__first_number - self.__second_number
-        elif self.__operator == '*':
-            return self.__first_number * self.__second_number
-        elif self.__operator == '/':
-            if self.__second_number == 0:
-                print("Cannot divide by zero\n")
-            else:
-                return self.__first_number / self.__second_number
+        while True:
+            self.__user_input()
+            result = None
+            if self.__operator == '+':
+                result = self.__first_number + self.__second_number
+            elif self.__operator == '-':
+                result = self.__first_number - self.__second_number
+            elif self.__operator == '*':
+                result = self.__first_number * self.__second_number
+            elif self.__operator == '/':
+                if self.__second_number == 0:
+                    print("Cannot divide by zero\n")
+                else:
+                    result = self.__first_number / self.__second_number
+            print(f"Result: {result}")
+            answer = input("Do you wanna create operation again?(y/n)\n")
+            if answer.lower() != 'y':
+                break
 
-    def user_input(self):
+    def __user_input(self):
         self.__first_number = self.__enter_number("Enter first number\n")
         self.__second_number = self.__enter_number("Enter second number\n")
-        self.__operator = input("Enter operator")
+        self.__operator = input("Enter operator\n")
 
     def __enter_operator(self):
         while True:
