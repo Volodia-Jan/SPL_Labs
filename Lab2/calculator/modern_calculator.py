@@ -3,11 +3,13 @@ import math
 from Lab2.calculator import BaseCalculator
 
 
+# Represent extended version of calculator that supports more operators
 class ModernCalculator(BaseCalculator):
 
     def __init__(self, valid_operators: list[str]):
         super().__init__(valid_operators)
 
+    # Perform loop of calculations
     def do_operation(self):
         while True:
             result = self.perform_operation()
@@ -16,6 +18,7 @@ class ModernCalculator(BaseCalculator):
             if answer.lower() != 'y':
                 break
 
+    # Perform a single calculation
     def perform_operation(self):
         result = super().perform_operation()
         if result is None:
@@ -29,6 +32,7 @@ class ModernCalculator(BaseCalculator):
                 print("Invalid operator")
         return result
 
+    # Returns the square root of a number that user chose
     def __get_sqrt(self) -> float:
         print(f"Your numbers:\n1 - {self._first_number}\n2 - {self._second_number}")
         option = int(input("Choose the number that should be converted?\n"))

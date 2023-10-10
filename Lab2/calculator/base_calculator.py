@@ -1,3 +1,4 @@
+# Represents a base functionality of calculator to perform simple operations
 class BaseCalculator:
 
     def __init__(self, valid_operators: list[str]):
@@ -6,6 +7,7 @@ class BaseCalculator:
         self._first_number = None
         self.__valid_operators = valid_operators
 
+    # Perform loop of calculations
     def do_operation(self):
         while True:
             result = self.perform_operation()
@@ -15,6 +17,7 @@ class BaseCalculator:
             if answer.lower() != 'y':
                 break
 
+    # Perform single calculation
     def perform_operation(self):
         self.__user_input()
         result = None
@@ -31,11 +34,13 @@ class BaseCalculator:
                 result = self._first_number / self._second_number
         return result
 
+    # Implemented user interface for entering numbers and operator
     def __user_input(self):
         self._first_number = self.__enter_number("Enter first number\n")
         self._second_number = self.__enter_number("Enter second number\n")
         self._operator = input("Enter operator\n")
 
+    # Implemented method that validates and return user operator input
     def __enter_operator(self):
         while True:
             operator = input("Enter operator:\n")
@@ -45,6 +50,7 @@ class BaseCalculator:
                 self._operator = operator
                 break
 
+    # Implemented method that validates and return user number input
     @staticmethod
     def __enter_number(input_msg: str = "Enter number:\n") -> float:
         while True:
