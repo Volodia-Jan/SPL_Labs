@@ -14,18 +14,31 @@ class BaseCalculator:
         elif self.__operator == '*':
             return self.__first_number * self.__second_number
         elif self.__operator == '/':
-            return self.__first_number / self.__second_number
+            if self.__second_number == 0:
+                print("Cannot divide by zero\n")
+            else:
+                return self.__first_number / self.__second_number
 
     def user_input(self):
-        self.__first_number = int(input("Enter first number"))
-        self.__second_number = int(input("Enter second number"))
+        self.__first_number = self.__enter_number("Enter first number\n")
+        self.__second_number = self.__enter_number("Enter second number\n")
         self.__operator = input("Enter operator")
 
     def __enter_operator(self):
         while True:
-            operator = input("Enter operator:")
+            operator = input("Enter operator:\n")
             if operator not in self.__valid_operators:
                 print(f"Operator is not valid:{operator}")
             else:
                 self.__operator = operator
                 break
+
+    @staticmethod
+    def __enter_number(input_msg: str = "Enter number:\n") -> float:
+        while True:
+            user_input = input(input_msg)
+            try:
+                number = float(user_input)
+                return number
+            except ValueError:
+                print("Invalid number entered.")
