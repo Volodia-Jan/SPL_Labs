@@ -21,7 +21,7 @@ class AsciiGeneratorInterface:
         user_input = UserInputHelper.get_user_input("Enter a word or phrase to convert to ASCII art: ")
 
         self.__font_choice = UserInputHelper.get_limited_user_input(
-            "Choose a font from the list below:\n{}\n".format("\n".join(self.__font_list)), self.__font_list)
+            "Choose a font from the list below:\n{}\n".format(", ".join(self.__font_list)), self.__font_list)
 
         self.__color_choice = UserInputHelper.get_limited_user_input(
             "Choose a color for the text ({})".format(", ".join(self.__color_list)), self.__color_list)
