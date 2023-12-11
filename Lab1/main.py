@@ -1,7 +1,7 @@
 from calculator import Calculator, CalculationSettings
 
 
-def main():
+def execute_lab1():
     valid_operators = ['+', '-', '*', '/', '^', '%', 'sqrt']
     flag = True
     calculator = Calculator("data.json")
@@ -26,4 +26,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    execute_lab1()

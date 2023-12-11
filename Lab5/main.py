@@ -1,9 +1,9 @@
 from Lab5.art_interface import ArtInterface
 
 
-def main():
+def execute_lab5():
     ArtInterface().run()
 
 
 if __name__ == '__main__':
-    main()
+    execute_lab5()

@@ -1,7 +1,7 @@
 from Lab5.cube import Cube
 from Lab5.pyramid import Pyramid
-from Lab5.user_input_hanlder import UserInputHelper
-from Lab5.file_handler import FileHandler
+from utils import UserInputHelper
+from utils.data_saver import FileHandler
 
 
 class ArtInterface:
@@ -48,7 +48,7 @@ class ArtInterface:
         answer = self.__input_helper.get_limited_user_input("Do you want to save art?(y,n)\n", ['y', 'n'])
         if answer is 'y':
             file_name = self.__input_helper.get_user_input("Enter file name\n")
-            FileHandler.save_to_file(file_name, content)
+            FileHandler().save_to_txt(file_name, content)
 
     @staticmethod
     def __print_art(art):

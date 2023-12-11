@@ -1,8 +1,8 @@
 import pyfiglet
 
 from Lab3.asci_generator import AsciiArtGenerator
-from Lab3.file_helper import FileHelper
-from Lab3.user_input_helper import UserInputHelper
+from utils import UserInputHelper
+from utils.data_saver import FileHandler
 
 
 class AsciiGeneratorInterface:
@@ -35,7 +35,7 @@ class AsciiGeneratorInterface:
     @staticmethod
     def __save_ascii_art(ascii_art):
         filename = UserInputHelper.get_user_input("Enter a filename to save the ASCII art: ")
-        FileHelper(filename).save_in_file(ascii_art)
+        FileHandler().save_to_txt(filename, ascii_art)
 
     def run(self):
         user_input = self.__get_user_input()

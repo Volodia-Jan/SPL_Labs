@@ -1,6 +1,6 @@
 from Lab4.ascii_art_generator import AsciiArtGenerator
-from Lab4.file_handler import FileHandler
-from Lab4.user_input_hanlder import UserInputHelper
+from utils import UserInputHelper
+from utils.data_saver import FileHandler
 
 
 class ConsoleInterface:
@@ -38,7 +38,7 @@ class ConsoleInterface:
                 generator = AsciiArtGenerator(user_input, width, height, alignment, color_option)
                 generator.set_alignment()
                 print(generator.generate_ascii_art())
-                FileHandler.save_to_file(generator.generate_ascii_art())
+                ConsoleInterface.__save_in_file(generator.generate_ascii_art())
                 generator.set_color_option()
             elif choice == "2":
                 user_input = ConsoleInterface.__get_user_input()
@@ -50,3 +50,10 @@ class ConsoleInterface:
                 generator.preview_ascii_art()
             elif choice == "3":
                 break
+
+    @staticmethod
+    def __save_in_file(data):
+        is_save = UserInputHelper.get_limited_user_input("Do you want to save it?(y/n)\n", ['y', 'n'])
+        if is_save == 'y':
+            file_name = UserInputHelper.get_user_input("Enter file name:\n")
+            FileHandler.save_to_txt(file_name, data)
