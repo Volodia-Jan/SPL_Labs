@@ -22,7 +22,7 @@ class TestUserRepository(unittest.TestCase):
         mock_http_client.return_value.get.assert_called_with('/users')
         self.assertEqual(result, expected_result)
 
-    @patch('Lab7.http_client.HttpClient')
+    @patch('Lab7.HttpClient')
     def test_get_user_by_id(self, mock_http_client):
         user_id = 1
         expected_result = self.__file_handler.read_json_from_file('test_data/user.json')

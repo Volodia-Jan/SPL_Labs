@@ -1,7 +1,10 @@
+import logging
+
 from calculator import Calculator, CalculationSettings
 
 
 def execute_lab1():
+    logging.info("Executing lab work 1")
     valid_operators = ['+', '-', '*', '/', '^', '%', 'sqrt']
     flag = True
     calculator = Calculator("data.json")
